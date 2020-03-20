@@ -23,14 +23,14 @@ def main():
         print("Un agent de santé prendra attache avec vous pour des analyses plus approfondies.")
         input("\nAppuyer sur Entrée pour continuer.")
     else:
-        print("Merci d'avoir complètez le test. Vous ne présentez aucun symptôme!")
+        print("Merci d'avoir complèté le test. Vous ne présentez aucun symptôme!")
         print("La prudence reste de mise. Continuez à suivre les consignes sanitaires.\n")
 
     # Record the completion datetime as UNIX timestamp
     answers["timestamp"] = datetime.timestamp(datetime.now())
     answers["uid"] = "USER PHONE NUMBER"
 
-    print(answers)
+    print("Informations enrégistrées dans la base de données pour analyse: \n{}".format(answers))
 
 if __name__ == "__main__":
     main()
