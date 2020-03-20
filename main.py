@@ -11,7 +11,7 @@ def main():
     input("\nAppuyer sur Entrée pour commencer le test")
     clear_console()
 
-    answers = {uid: "99009900"}
+    answers = {"uid": "99009900"}
 
     for label, prompt in prompts.items():
         answers[label] = ask(Question(prompt=prompt, label=label, answers=("Non", "Oui")))
@@ -22,8 +22,8 @@ def main():
 
     # Returns True if user responds "Yes" to at least one question
     if any(answers.values()):
+        print("Il se pourrait que vous représentiez un risque de santé. Mettez-vous en confinement.")
         print("Un agent de santé prendra attache avec vous pour des analyses plus approfondies.")
-        print("Vous pouvez également appelez le 111 pour plus de renseignements.")
         input("\nAppuyer sur Entrée pour continuer.")
     else:
         print("Merci d'avoir complètez le test. Vous ne présentez aucun symptôme!")
