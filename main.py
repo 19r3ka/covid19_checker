@@ -11,14 +11,11 @@ def main():
     input("\nAppuyer sur Entrée pour commencer le test")
     clear_console()
 
-    answers = {"uid": "99009900"}
+    answers = {}
 
     for label, prompt in prompts.items():
         answers[label] = ask(Question(prompt=prompt, label=label, answers=("Non", "Oui")))
         clear_console()
-
-    # Record the completion datetime as UNIX timestamp
-    answers["timestamp"] = datetime.timestamp(datetime.now())
 
     # Returns True if user responds "Yes" to at least one question
     if any(answers.values()):
@@ -27,8 +24,11 @@ def main():
         input("\nAppuyer sur Entrée pour continuer.")
     else:
         print("Merci d'avoir complètez le test. Vous ne présentez aucun symptôme!")
-        print("La prudence reste de mise. Continuez à suivre les consignes sanitaires.")
-        clear_console()
+        print("La prudence reste de mise. Continuez à suivre les consignes sanitaires.\n")
+
+    # Record the completion datetime as UNIX timestamp
+    answers["timestamp"] = datetime.timestamp(datetime.now())
+    answers["uid"] = "USER PHONE NUMBER"
 
     print(answers)
 
